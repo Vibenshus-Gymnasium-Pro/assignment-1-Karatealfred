@@ -24,7 +24,7 @@ def save(svg, filename):
     with open(filename, 'w') as f:
         f.write(svg)
 
-def draw_circle(x, y, radius):
+def draw_circle(x, y, radius, color):
     """Creates svg code for drawing a circle.
     Input:
     - x: int, x-coordinate of the center of the circle in pixels
@@ -36,14 +36,14 @@ def draw_circle(x, y, radius):
     cx = 'cx="' + str(x) + '"'
     cy = 'cy="' + str(y) + '"'
     rad = 'r="' + str(radius) + '"'
-    return '<circle ' + cx + ' ' + cy + ' ' + rad + ' ' + style + '/>'
+    return '<circle ' + cx + ' ' + cy + ' ' + rad + ' ' +  'fill="'+color+'"/>'
 
-def draw_rectangle(x,y,w,h):
+def draw_rectangle(x,y,w,h, color):
     x = 'x="' + str(x) + '"'
     y = 'y="' + str(y) + '"'
     w = 'width="' + str(w) + '"'
     h = 'height="' + str(h) + '"'
-    return '<rect '+x+' '+y+' '+w+' '+h+'/>'
+    return '<rect '+x+' '+y+' '+w+' '+h+' fill="'+color+'"/>'
 
 def draw_triangle(x1,y1,x2,y2,x3,y3,color):
     x1=str(x1)
@@ -56,9 +56,9 @@ def draw_triangle(x1,y1,x2,y2,x3,y3,color):
 
 # An example drawing:
 shapes = ""
-shapes = shapes + draw_circle(220, 220, 200)
-shapes = shapes + draw_circle(220, 220, 180)
-shapes = shapes + draw_circle(400, 220, 180)
+shapes = shapes + draw_circle(220, 220, 200,'#7CFC00')
+shapes = shapes + draw_circle(220, 220, 180,'#7CFC00')
+shapes = shapes + draw_circle(400, 220, 180,'#7CFC00')
 #shapes = shapes + draw_rectangle(5,30,233,372)
 shapes = shapes + draw_triangle(30,30,60,30,45,45, '#7CFC00')
 
